@@ -14,7 +14,7 @@
     "migrate:bsc": "tsc -p ./tsconfig.json --outDir ./migrations && truffle migrate --network bsc",
     "migrate:testnet": "tsc -p ./tsconfig.json --outDir ./migrations && truffle migrate --network testnet",
     "migrate:development": "tsc -p ./tsconfig.json --outDir ./migrations && truffle migrate --network development",
-    "verify:bsc": "truffle run verify Migrations --network bsc && truffle run verify ApetasticERC20Factory --network bsc && && truffle run verify ERC20Initializable --network bsc",
+    "verify:bsc": "truffle run verify Migrations --network bsc && truffle run verify ApetasticERC20Factory --network bsc && truffle run verify ERC20Initializable --network bsc",
     "verify:testnet": "truffle run verify Migrations --network testnet && truffle run verify ApetasticERC20Factory --network testnet && truffle run verify ERC20Initializable --network testnet",
     "flatten": "truffle-flattener ./contracts/ERC20Initializable.sol --output ./ERC20Initializable_flat.sol",
     "typecheck": "tsc --noEmit",
