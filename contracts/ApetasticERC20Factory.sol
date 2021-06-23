@@ -12,15 +12,14 @@ pragma solidity ^0.8.0;
  * GitHub:          https://github.com/ApeSwapFinance
  */
 
-import "./ERC20/ERC20Initializable.sol";
-import "./ERC20/SafeERC20.sol";
-import "./utils/Ownable.sol";
+import "./ApetasticERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 /// @title A smart contract for generating ERC-20 tokens
 /// @author Apetastic
 contract ApetasticERC20Factory is Ownable {
     using SafeERC20 for IERC20;
-    bytes32 public constant INIT_CODE_TOKEN_HASH = keccak256(abi.encodePacked(type(ERC20Initializable).creationCode));
 
     address public beneficiary;
     address[] public allTokens;
@@ -45,8 +44,7 @@ contract ApetasticERC20Factory is Ownable {
     /// @param symbol The symbol of the token
     /// @param supply The totalSupply of the token
     function createToken(string memory name, string memory symbol, uint256 supply) external returns (address) {
-        ERC20Initializable token = new ERC20Initializable();
-        token.initialize(name, symbol, msg.sender, supply);
+        ApetasticERC20 token = new ApetasticERC20(name, symbol, msg.sender, supply);
         allTokens.push(address(token));
         emit TokenCreated(address(token), supply);
         return address(token);

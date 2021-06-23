@@ -1,8 +1,8 @@
 const ApetasticERC20Factory = artifacts.require("ApetasticERC20Factory");
-const ERC20Initializable = artifacts.require("ERC20Initializable");
+const ApetasticERC20 = artifacts.require("ApetasticERC20");
 
-module.exports = async function (deployer) {
+module.exports = async function (deployer, network, accounts) {
   await deployer.deploy(ApetasticERC20Factory);
   // Deploy a dummy ERC20 contract for verification purposes
-  await deployer.deploy(ERC20Initializable);
+  await deployer.deploy(ApetasticERC20, 'DUMMY', 'DUMMY', accounts[0], 1);
 };
