@@ -29,6 +29,10 @@ contract ApetasticERC20Factory is Ownable {
     event TransferBeneficiary(address indexed oldBeneficiary, address indexed beneficiary);
     event SweepToken(IERC20 indexed token, address indexed beneficiary, uint256 balance);
 
+    /// @dev On contract creation the beneficiary (and owner) are set to msg.sender
+    constructor() {
+        beneficiary = msg.sender;
+    }
 
     /// @notice Return the number of tokens created by this contract
     function allTokensLength() external view returns (uint) {
