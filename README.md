@@ -1,6 +1,12 @@
-# Truffle Typescript Boilerplate
-Build Solidity smart contracts with truffle and typescript support.
+# Apetastic ERC20 Factory
+This repository serves as an example of how to use factory contracts to deploy other contracts without needing to run a cli deployment or use Remix. 
 
+The factory deploys a standard OpenZeppelin ERC-20 contract which has been extended to mint the initial supply to the token creator. 
+
+## OpenZeppelin
+OZ is the OG of smart contract development and they continue to hone their skills. 
+
+https://docs.openzeppelin.com/contracts 
 ## Install 
 Click "Use as Template" to create a repo on GitHub based on this repo. Otherwise:  
 `git clone git@github.com:DeFiFoFum/truffle-typescript-template.git`   
