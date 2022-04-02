@@ -59,7 +59,7 @@ contract ApetasticERC20Factory is Ownable {
     }
 
     /// @notice An external function to sweep ERC20 tokens locked in this contract.
-    /// @dev Only the owner can call this function, but the tokens are transferred to the beneficiary address
+    /// @dev Any address can call this function, but tokens are transferred to the beneficiary address
     /// @param token The address of the ERC20 token to sweep
     function sweepToken(IERC20 token) external {
         uint256 balance = token.balanceOf(address(this));
